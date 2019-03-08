@@ -1,0 +1,31 @@
+{
+    "commands": [
+        {
+            "type": "connect",
+            "command": "ssh test"
+
+        },
+        {
+            "type": "run",
+            "command": "johntheripper"
+
+        },
+        {
+            "type": "create file",
+            "command": "touch passw",
+            "location": " Desktop/test.txt"
+
+        },
+        {
+            "type": "sendHash",
+            "command": "printf ",
+          
+
+        },
+        {
+            "type": "location",
+            "location": "> Desktop/test.txt"
+
+        }
+      ]
+    }

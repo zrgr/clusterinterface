@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+  {% block title %}
+    Page Not Found
+{% endblock %}
+
+  {% block content %}
+  <link href="/static/css/errors/errors.css" rel="stylesheet">
+  <h1>The page you were looking for could not be found.<h1>
+  <h2><a href="{{ url_for('index') }}"> Return home</a></h2>
+  {% endblock %}

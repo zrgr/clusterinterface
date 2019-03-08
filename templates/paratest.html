@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="float-right">
+<a class="material-icons" href="#about">info</a>
+</div>
+<style>
+body, html {
+  height: 100%;
+}
+
+
+.parallax {
+  /* The image used */
+  background-image: url('static/images/raspi.jpg');
+
+  /* Full height */
+  height: 100%;
+
+
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+
+}
+
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
+.button1{
+
+  background-color: #111;
+  border-style: #fff;
+  border-radius: 4px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 150%;
+}
+
+
+
+</style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50" >
+
+
+
+
+<div class="caption">
+    <div class="row">
+      <div class="col text-center">
+        <button type="button" class="button1" data-toggle="modal" data-target="#passwordEntry">
+          Raspberry Pi Cluster
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- The Modal -->
+  <div class="modal fade" id="passwordEntry">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Enter Password</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form  action="" method="post" name="form">
+
+                <div class="form-group row">
+
+                  <div class="col-12">
+                    <div class="input-group">
+                      <input type="password" id="password" name="password" class="form-control" required="required">
+
+                        <div class="input-group-append">
+                          <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </form>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+<div class="parallax"></div>
+
+
+
+
+
+
+<footer>
+<div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify; opacity: 0.7;">
+  <h3 style="text-align:center;">About</h3>
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6" id="about">
+              <h4>How the site works?</h4>
+              <p>A website that provides a graphical interface for a raspberry pi cluster.</p>
+          </div>
+           <div class="col-sm-6">
+
+           </div>
+        </div>
+      </div>
+
+       <div class="container text-center">
+         <span class="text-muted"> <a href="/contact">Contact </a> | <a href="/privacy">Privacy </a></span></br>
+         <span class="text-muted">Copyright &copy; Pi Cluster Website 2019</span>
+       </div>
+</div>
+</footer>
+
+
+
+
+
+</body>
+{% endblock %}
+
+<!--
+
+
+<div class="container" >
+ <div class="card" style="color: #777;background-color:white;text-align:center;text-align: justify; opacity: 0.9;">
+    <div class="card-header">
+    Enter Password for Pi Cluster
+   </div>
+
+
+
+  <div class="card-body">
+
+      <form  action="" method="post" name="form">
+           <div class="form-group row">
+              <label for="password" class="col-4 col-form-label">Password:</label>
+              <div class="col-8">
+                <input id="password" name="password" type="password" class="form-control here" required="required">
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="offset-4 col-8">
+                <button name="submit" type="submit" class="btn btn-primary">Connect</button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="bgimg-1">
+      <div class="caption">
+      <span class="border">Raspberry Pi Cluster</span>
+      </div>
+    </div>
+
+-->

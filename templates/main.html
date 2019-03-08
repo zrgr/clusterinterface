@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+<br>
+<div class="card">
+  <div class="card-header">
+  Enter your Hash.
+  <div class="float-right">
+  <a class="material-icons" href="{{ url_for('connectionSettings') }}">settings</a>
+  </div>
+ </div>
+   <div class="card-body">
+
+    <form  action="" method="post" name="form">
+
+          <div class="form-group row">
+
+            <div class="col-12">
+              <div class="input-group">
+                <input type="text" id="hash" name="hash" class="form-control" aria-label="Text input with dropdown button" required="required">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary dropdown-toggle" type="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Encryption</button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Md5</a>
+                    <a class="dropdown-item" href="#">NTLM</a>
+                  </div>
+                </div>
+                  <div class="input-group-append">
+                    <button name="submit" type="submit" class="btn btn-primary">Send Hash</button>
+                 </div>
+              </div>
+            </div>
+          </div>
+
+
+        </form>
+      <a href="#">Advanced</a>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
