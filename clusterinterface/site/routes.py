@@ -1,10 +1,10 @@
-from flask import Flask, render_template, url_for, abort, request, g, flash, redirect, session
+from flask import Flask, render_template, url_for, abort, request, g, flash, redirect, session, Blueprint
 import json, hashlib, paramiko, bcrypt, binascii
 
-app = Flask(__name__)
+site = Flask(__name__)
 
 #paramiko.util.log_to_file("demo_server.log")
-app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
+site.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 ###################################################################
 #
@@ -46,7 +46,7 @@ def toMD5(passwordInput):
     return md5_hash
 
 
-@app.route('/settings', methods=['POST','GET'])
+@site.route('/settings', methods=['POST','GET'])
 def connectionSettings():
 
     data = getSettings()
@@ -87,19 +87,19 @@ def connectionSettings():
             return render_template('settings.html', ip=ip, port=port, username=username), 200
 
 
-@app.route('/advanced', methods=['POST','GET'])
+@site.route('/advanced', methods=['POST','GET'])
 def advancedOptions():
     return 'advanced'
 
 
 
-@app.route('/')
+@site.route('/')
 def index():
 
     #return render_template('main.html')
     return redirect(url_for('connect'))
 
-@app.route('/connect', methods=['POST','GET'])
+@site.route('/connect', methods=['POST','GET'])
 def connect():
     if request.method == 'POST':
 
@@ -131,7 +131,7 @@ def connect():
 
 
 
-@app.route('/ssh',)
+@site.route('/ssh',)
 def ssh_test():
 
 
@@ -156,7 +156,7 @@ def ssh_test():
         #resp=''.join(outlines)
         #print(resp)
 
-@app.route('/home', methods=['POST','GET'])
+@site.route('/home', methods=['POST','GET'])
 def home():
     if request.method == 'POST':
 
@@ -189,7 +189,7 @@ def home():
 
 
 
-@app.route('/sendhash', methods=['POST','GET'])
+@site.route('/sendhash', methods=['POST','GET'])
 def sendHash():
     if request.method == 'POST':
 
@@ -199,7 +199,7 @@ def sendHash():
     else:
      return render_template('main.html'), 200
 
-@app.route('/test')
+@site.route('/test')
 def testmod():
 
     data = getSettings()
@@ -229,11 +229,11 @@ def testmod():
 #                           ERRORS
 #
 ###################################################################
-@app.errorhandler(404)
+@site.errorhandler(404)
 def page_not_found(error):
   return render_template('errors/404.html'), 404
 
-@app.errorhandler(500)
+@site.errorhandler(500)
 def internal_server_error(error):
   return render_template('errors/500.html'), 500
 
