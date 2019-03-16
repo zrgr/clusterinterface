@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+  {% block title %}
+   Internal Server Error
+{% endblock %}
+  {% block content %}
+  <link href="/static/css/errors/errors.css" rel="stylesheet">
+  <h1>Something went wrong</h1>
+  <h2><a href="{{ url_for('index') }}"> Return home</a><h2>
+  {% endblock %}
