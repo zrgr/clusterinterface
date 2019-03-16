@@ -1,7 +1,7 @@
 from flask import Flask, render_template, url_for, abort, request, g, flash, redirect, session, Blueprint
 import json, hashlib, paramiko, bcrypt, binascii
 
-site = Flask(__name__)
+site = Blueprint('site', __name__)
 
 #paramiko.util.log_to_file("demo_server.log")
 site.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
