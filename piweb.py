@@ -12,7 +12,6 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 #
 ###################################################################
 
-
 def isConnected():
 
     if (ssh.get_transport().is_authenticated() == True):
@@ -45,9 +44,6 @@ def toMD5(passwordInput):
     toHash = passwordInput
     md5_hash = hashlib.md5(toHash.encode('utf-8')).hexdigest()
     return md5_hash
-
-
-
 
 
 @app.route('/settings', methods=['POST','GET'])
@@ -226,21 +222,6 @@ def testmod():
     outlines=stdout.readlines()
     resp=''.join(outlines)
     return resp
-
-
-
-
-
-def build_command(userHash):
-    #with open('static/json/commands.json') as data_file:
-     # data = json.load(data_file)
-
-    #for commands in data['commands']:
-        #if(commands['type'] == command):
-           #output = commands['command']
-           output = userHash
-
-           return render_template('output.html', command=output)
 
 
 ###################################################################
