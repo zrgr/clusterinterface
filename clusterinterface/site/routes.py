@@ -1,7 +1,7 @@
 from flask import Flask, render_template, url_for, abort, request, g, flash, redirect, session, Blueprint
 import json, hashlib, paramiko, bcrypt, binascii
 
-mod = Blueprint('site', __name__, static_url_path='/', 
+mod = Blueprint('site', __name__, static_url_path='/',
             static_folder='static',
             template_folder='templates')
 
@@ -23,14 +23,14 @@ def isConnected():
 
 def getSettings():
 
-    with open('static/json/config.json') as data_file:
+    with open('clusterinterface/site/static/json/config.json') as data_file:
      settings = json.load(data_file)
      data_file.close()
      return settings
 
 def getCommmands():
 
-    with open('static/json/commands.json') as data_file:
+    with open('clusterinterface/site/static/json/commands.json') as data_file:
      commands = json.load(data_file)
      data_file.close()
      return commands
@@ -71,10 +71,10 @@ def connectionSettings():
 
         #data['config'].append(entry)
 
-        with open('static/json/config.json', 'w') as new_file:
+        with open('clusterinterface/site/static/json/config.json', 'w') as new_file:
           json.dump(data, new_file, indent=4, sort_keys=True)
 
-        return redirect(url_for('connect'))
+        return redirect(url_for('site.connect'))
 
         #with open('static/json/config.json', 'w') as new_file:
          # json.dump(data, new_file, indent=4, sort_keys=True)
@@ -120,7 +120,7 @@ def connect():
         hashedPass = data['config'][0]['password']
         #return hashedPass
         if hashedPass == bcrypt.hashpw(password.encode('utf-8'), hashedPass.encode('utf-8')):
-            return redirect(url_for('sendHash'))
+            return redirect(url_for('site.sendHash'))
         else:
             flash('Incorrect Password Entered!')
             return render_template('connect.html'), 200
@@ -177,7 +177,7 @@ def home():
         hashedPass = data['config'][0]['password']
         #return hashedPass
         if hashedPass == bcrypt.hashpw(password.encode('utf-8'), hashedPass.encode('utf-8')):
-            return redirect(url_for('sendHash'))
+            return redirect(url_for('site.sendHash'))
         else:
             flash('Incorrect Password Entered!')
             return render_template('paratest.html'), 200
