@@ -6,7 +6,7 @@ mod = Blueprint('site', __name__, static_url_path='/',
             template_folder='templates')
 
 #paramiko.util.log_to_file("demo_server.log")
-mod.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
+#mod.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 ###################################################################
 #
@@ -95,11 +95,8 @@ def advancedOptions():
 
 
 
-@mod.route('/')
-def index():
-
     #return render_template('main.html')
-    return redirect(url_for('site.connect'))
+    #return redirect(url_for('site.connect'))
 
 @mod.route('/connect', methods=['POST','GET'])
 def connect():
@@ -180,12 +177,12 @@ def home():
             return redirect(url_for('site.sendHash'))
         else:
             flash('Incorrect Password Entered!')
-            return render_template('paratest.html'), 200
+            return render_template('home.html'), 200
 
         #with open('static/json/config.json', 'w') as new_file:
          # json.dump(data, new_file, indent=4, sort_keys=True)
     else:
-     return render_template('paratest.html'), 200
+     return render_template('home.html'), 200
 
 
 
@@ -203,7 +200,7 @@ def sendHash():
      return render_template('main.html'), 200
 
 @mod.route('/test')
-def testmod():
+def connectSSH():
 
     data = getSettings()
 
@@ -227,6 +224,38 @@ def testmod():
     return resp
 
 
+@mod.route('/index', methods=['POST','GET'])
+def index():
+    if request.method == 'POST':
+
+        print request.form
+        with open('clusterinterface/site/static/json/config.json') as data_file:
+         data = json.load(data_file)
+         #data.close()
+
+
+        password = request.form['password']
+        #password = bcrypt.hashpw((request.form['password']).encode('utf-8'), bcrypt.gensalt())
+        #data['config'][0]['password'] = password
+        #entry = {'password': password}
+        #data['config'].append(entry)
+
+        hashedPass = data['config'][0]['password']
+        #return hashedPass
+        if hashedPass == bcrypt.hashpw(password.encode('utf-8'), hashedPass.encode('utf-8')):
+            return redirect(url_for('site.dashboard'))
+        else:
+            flash('Incorrect Password Entered!')
+            return render_template('login.html'), 200
+
+        #with open('static/json/config.json', 'w') as new_file:
+         # json.dump(data, new_file, indent=4, sort_keys=True)
+    else:
+     return render_template('login.html'), 200
+
+@mod.route('/dash')
+def dashboard():
+    return render_template('dashboard.html')
 ###################################################################
 #
 #                           ERRORS

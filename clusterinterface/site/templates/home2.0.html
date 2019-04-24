@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<style>
+body {
+  background-image:url('/images/raspi.jpg');
+
+  /* Full height */
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.button1{
+
+  background-color: #111;
+  border-style: #fff;
+  border-radius: 4px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 150%;
+}
+
+.info{
+
+  color: #DFCD4E;
+  background-color: #26684C;
+  border-radius: 25px;
+
+
+}
+
+
+footer{
+
+   position:absolute;
+   bottom:0;
+   width:100%;
+   color: #777;
+   background-color:white;
+   text-align:center;
+   padding:10px 15px;
+   text-align: justify;
+   opacity: 0.7;"
+
+}
+
+</style>
+
+<body>
+<!-- The Modal -->
+<div class="modal fade" id="passwordEntry">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Enter Password</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form  action="" method="post" name="form">
+
+              <div class="form-group row">
+
+                <div class="col-12">
+                  <div class="input-group">
+                    <input type="password" id="password" name="password" class="form-control" required="required">
+
+                      <div class="input-group-append">
+                        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<div class="container-fluid h-100">
+    <div class="row h-100">
+
+        <div class="col-sm-6 col-2 h-100 text-white py-2 d-flex align-items-center justify-content-center fixed-top" id="left" style="background-color: #3D9455;">
+
+            <div class="d-none d-sm-block">
+
+              <div class="container">
+
+
+                <div class="card">
+                  <div class='info'>
+                    <div class="card-body">
+
+                      Basic card
+
+                      <h4>Filler text password craking<br>
+                        cracked.</h4>
+                        <h5>Connect to a raspberry pi cluster and <br>discover if your Md5 or Ntml password has been cracked</h5><br>
+                        <button type="button" class="button1 " data-toggle="modal" data-target="#passwordEntry">
+                        Get Started
+                      </button>
+                     </div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        </div>
+
+        <div class="col-sm-6 invisible col-2"></div>
+        <div class="col offset-2 offset-sm-6 py-2">
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+{% endblock %}

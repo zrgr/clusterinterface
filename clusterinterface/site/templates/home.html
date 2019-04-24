@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+body {
+  background-image:url('/images/raspi.jpg');
+
+  /* Full height */
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.button1{
+
+  background-color: #111;
+  border-style: #fff;
+  border-radius: 4px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 150%;
+}
+
+footer{
+
+   position:absolute;
+   bottom:0;
+   width:100%;
+   color: #777;
+   background-color:white;
+   text-align:center;
+   padding:10px 15px;
+   text-align: justify;
+   opacity: 0.7;"
+
+}
+
+</style>
+</head>
+
+<body>
+  
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class=" h-100 w-100">
+        <div class="align-middle">
+
+            <div class="col text-center">
+              <button type="button" class="button1 " data-toggle="modal" data-target="#passwordEntry">
+                Get Started
+              </button>
+            </div>
+         </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- The Modal -->
+  <div class="modal fade" id="passwordEntry">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Enter Password</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form  action="" method="post" name="form">
+
+                <div class="form-group row">
+
+                  <div class="col-12">
+                    <div class="input-group">
+                      <input type="password" id="password" name="password" class="form-control" required="required">
+
+                        <div class="input-group-append">
+                          <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                         </div>
+                      </div>
+                    </div>
+                  </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<footer>
+    <div>
+      <h3 style="text-align:center;">About</h3>
+        <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6" id="about">
+                  <h4>How the site works?</h4>
+                  <p>A website that provides a graphical interface for a raspberry pi cluster.</p>
+              </div>
+               <div class="col-sm-6">
+               </div>
+            </div>
+          </div>
+
+          <div class="container text-center">
+            <span class="text-muted"> <a href="/contact">Contact </a> | <a href="/privacy">Privacy </a></span></br>
+            <span class="text-muted">Copyright &copy; Pi Cluster Website 2019</span>
+       </div>
+    </div>
+</footer>
+
+</body>
+{% endblock %}

@@ -1,9 +1,9 @@
 {
     "config": [
         {
-            "ip": "192.168.1.240", 
-            "password": "$2b$12$GjWOMu2hL7pajYvIixLape9TgcetyoyFr6cJymvE3AEoG8QppJ6aK", 
-            "port": "22", 
+            "ip": "192.168.1.240",
+            "password": "$2b$12$GjWOMu2hL7pajYvIixLape9TgcetyoyFr6cJymvE3AEoG8QppJ6aK",
+            "port": "22",
             "username": "test"
         }
     ]

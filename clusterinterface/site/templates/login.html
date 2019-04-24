@@ -33,14 +33,16 @@
       <div class="row h-100">
         <div class="col-12 my-auto">
           <div class="masthead-content text-white py-5 py-md-0">
+          <form  action="" method="post" name="form">
             <h1 class="mb-3">Start cracking passwords now!</h1>
             <p class="mb-5">Connect to a raspberry pi cluster and start cracking passwords.</p>
             <div class="input-group input-group-newsletter">
-              <input type="email" class="form-control" placeholder="Enter Cluster Password" aria-label="Enter email..." aria-describedby="basic-addon">
+              <input type="password" id="password" name="password" class="form-control" placeholder="Enter Cluster Password" aria-label="Enter email..." aria-describedby="basic-addon">
               <div class="input-group-append">
-                <button class="btn btn-secondary" type="button">Go!</button>
+                <button name="submit" type="submit" class="btn btn-primary">Go!</button>
               </div>
             </div>
+          </form>
           </div>
         </div>
       </div>
